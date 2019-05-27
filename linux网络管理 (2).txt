@@ -1,0 +1,31 @@
+ip address: network address + host address. network address is marked by netmask.
+比较两台主机的子网掩码,如果一样,那么两台主机就可以再同一个网段上直接通话.如果不一样,就要发给默认网关.
+子网掩码可用/16表示,表示前16位是网络id.默认网关地址要与主机地址在同一个网段.
+linux中,使用 ifconfig 查看网卡.传统linux中网卡的名称为eth0,eth1,...弊端是无法与物理网卡绑定.红帽子中,以太网以en开头,wlan以wl开头,wwan以ww开头.名字绑定物理网卡.
+o代表内置网卡,s代表热插拔网卡
+最后的数字代表端口号或id
+ens33,lo(环回网卡),virbr0(虚拟网桥)
+
+红帽7中网络配置.
+ip a s ens33
+>>2: ens33: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UP group default qlen 1000
+    link/ether 00:0c:29:0b:e6:f3 brd ff:ff:ff:ff:ff:ff
+    inet 192.168.27.134/24 brd 192.168.27.255 scope global noprefixroute dynamic ens33
+       valid_lft 1386sec preferred_lft 1386sec
+    inet6 fe80::c1ea:e1b8:f0ee:cf4f/64 scope link noprefixroute 
+       valid_lft forever preferred_lft forever
+ip -s link show ens33
+
+使用nmcli管理网络 用得很少,自学.
+network manager command line interface.
+如何配置网卡
+nmtui,文字界面编辑网卡
+网络配置文件 /etc/sysconfig/network-scripts/ 可以看到网卡的配置文件 ifcfg-ens33
+BOOTPROTO=none
+IPADDR=192.168.17.128
+ifup-接口名 打开接口
+ifdown-接口名 关闭接口
+
+更改系统主机名
+hostname 查看主机名
+/etc/hostname里修改配置文件.

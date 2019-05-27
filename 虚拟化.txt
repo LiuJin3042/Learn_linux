@@ -1,0 +1,10 @@
+KVM:让虚拟操作系统更方便调用硬件,提高性能.K for kernel.
+面向用户的客户端:QEMU:创建虚拟机.libvirt:管理虚拟机的创建,与用户交互.
+硬件<KVM<QEMU<libvert
+在software里选择虚拟机套件
+systemctl status libvertd 查看进程状态
+系统工具>虚拟系统管理器
+虚拟机网络设置:网桥:通过交换机联网;NAT:通过NAT中的DHCP分配地址联网;仅主机:只能和主机通信.
+virsh -list
+virsh start vm_name
+virst destroy vm_name

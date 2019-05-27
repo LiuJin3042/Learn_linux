@@ -1,0 +1,25 @@
+编译:源代码拿到特定的操作系统上,根据内核进行编译,性能最好.
+rpm:红帽包管理
+rpm软件包:名称-版本.发行版.架构
+rpm -qa 查询所有安装的包
+rpm -qa | grep lrzsz 查询特定的包
+rpm -e lrzsz 删除包
+rpm -ivh lrzsz... 安装包
+rpm -qc lrzsz 配置文件
+rpm -Uvh 更新
+rpm 的原理是将包解压缩到不同的目标文件夹下.不用用户自己配置.
+rpm -qi lrzsz 查询信息
+rpm的问题
+如果依赖库不存在,rpm就不会安装.
+没有软件仓库
+
+yum
+yellow dog updater modified
+查看yum源 yum repolist
+yum search pkg_name
+yum list installed 安装了哪些软件
+yum grouplist 列出软件组
+yum groupinstall 
+yum install 
+yum update
+

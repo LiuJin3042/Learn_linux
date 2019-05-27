@@ -1,0 +1,26 @@
+文档有创建时间,创建人,权限等信息.拷贝会破坏这些信息.
+归档:把经常不用的文件打包.使用tar命令.
+命令:
+c:创建归档
+t:列出存档内容
+x:提取归档
+f:制定文件名
+z:gzip压缩
+j:bzip2压缩
+J:xz压缩
+
+tar没有压缩功能.但是所有信息都会被储存.
+tar -cf outputfile.tar target_file
+tar -xvf targetfile.tar 可以直接解压压缩过的文件
+tar -t targetfile.tar 查看文件内容
+
+压缩 gzip
+tar文件压缩后会变成.tar.gz文件
+-d 解压缩
+bzip2,生成tar.bz2文件
+
+远程拷贝
+scp /etc/* root@192.168.0.1:/root/
+rz 命令,从外向虚拟机传输文件
+sz 命令,从虚拟机向外传输
+本地和远程文件夹同步 rsync语法与scp一样.

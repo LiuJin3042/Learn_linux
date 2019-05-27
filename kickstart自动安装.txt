@@ -1,0 +1,13 @@
+kickstart自动安装
+网卡要支持PXE,预启动执行环境.
+三台服务器:
+DHCP:告诉目标机器需要PXLINUX.0文件
+TFTP:提供简单的内核与PXLINUX.0文件
+FTP:提供完整的镜像文件.还要提供配置的应答程序.
+
+自动应答文件
+根目录下anaconda-ks.cfg文件
+yum install system-config-kickstart
+使用配置软件写ks文件
+写完后在启动安装时指定配置文件位置
+ks=...
