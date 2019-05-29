@@ -90,4 +90,15 @@ set nu: view line number
 ctrl+G: view info of this line
 G: go to the last line
 55G: go to 55th line
+(command)(number)(object)
+c17G: change text from cursor to line 17
+d{: delete text from cursor to last paragraph
+yH: copy from cursor to head of screen
+
+Open File
+vi + file: open file at last line
+vi +10 file: open file at 10th line
+vi +/"pattern" file: open file at first pattern
+vi -R file: open file in "ReadOnly"(this case, use :w! to write and quit)
+view file: ditto
 
