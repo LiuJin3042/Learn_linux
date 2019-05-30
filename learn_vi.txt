@@ -102,3 +102,27 @@ vi +/"pattern" file: open file at first pattern
 vi -R file: open file in "ReadOnly"(this case, use :w! to write and quit)
 view file: ditto
 
+Mark
+mx: mark current place as x(can be any symble)
+'x: move cursor to the line marked with x
+`x: move cursor to mark x
+``: return to last mark or the place of cursor before moving
+'': return to last mark or begining of the line 
+
+ex Editor
+d: delete + line number
+m: move line
+co/t: copy line
+3,18d: delete line 3 to line 18
+170,220m3: move from line 170 to line 220 after line 3
+23,29c100: copy from line 23 to line 29 after line 100
+set nu: display line number
+ to line 220 after line 3
+23,29c100: copy from line 23 to line 29 after line 100
+set nu: display line number
+.$0%: present/last/first/all line of this passage
+20,.m$: move from line 20 to present line to the end line
++/-: reletive line number
+.,.+10co.-20: copy from present line to present +10 line after present -20 line  
+/pattern/: find line through pattern
+
