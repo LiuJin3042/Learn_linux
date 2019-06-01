@@ -1,0 +1,28 @@
+SeLinux
+even the mechine is hacked, hacker can not cause any damage.
+MAC mandatory access control. 
+>> getenforce
+  enforcing
+>> setenforce 0(shutdown) 1(turn on)
+>> getenforce 
+  permissive(the restriction is set to minimum)
+>> cd /etc/selinux
+>> vi config
+>> yum -y install httpd
+>> sysctl start httpd
+>> sysctl status httpd
+>> ifconfig (check the ip addr of the service)
+in outer mechine, visit the ip, cannot be reached.
+check the firewall in gui
+>> firewall-config
+in public, services, tick the http service, save
+>> cd /var/www/html
+>> echo 'welcome' > index.html
+visit the web in outer mechine
+>> ls -Z(see the tags of files)
+user-tag:role-tag:class-tag:sensitive-tag
+moving file won't change the tag. 
+the file created in /var/www/html have a special class tag for apache service
+while the file moved to the folder does not.
+we may have trouble visiting the moved file from outer client.
+
