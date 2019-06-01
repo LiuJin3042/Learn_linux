@@ -1,0 +1,9 @@
+grep 'cat$' /usr/share/dict/words, '' can be omitted
+grep -e: extended grep, support more expressions
+[options] -i, ignore case; -v ignore case that is satisfied; 
+-e, extended, logical 'or'; 
+grep -v '^#' ..
+
+pgrep: find process using regex.
+  pgrep bash
+
