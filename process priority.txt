@@ -1,0 +1,14 @@
+control the priority of process manually
+top: show process real time
+pr: priority, from -99 to 39
+ni: nice. -20 to 19, default 0. the higher, the less priority it has.
+in top window:
+  h: help
+  r: renice, input pid
+  k: kill
+  m,l: sort in memory, load
+
+ps aux: show all process.
+ps axo pid,comm,nice --sort=-nice
+renice -n -7 $(pgrep origami@home): find process of user origami and set the
+priority to -7
