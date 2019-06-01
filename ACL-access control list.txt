@@ -7,3 +7,4 @@ setfacl -m u:user1:rwx aa: set specific perssion to user1
  is changed into 'user-user1-group+', completed changed. '+' represents the
  permission of other user that is not listed.
 mask: the permission of others will do 'and' operates with it.
+setfacl -m m::rwx bb
