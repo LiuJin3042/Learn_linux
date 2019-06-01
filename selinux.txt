@@ -25,4 +25,15 @@ moving file won't change the tag.
 the file created in /var/www/html have a special class tag for apache service
 while the file moved to the folder does not.
 we may have trouble visiting the moved file from outer client.
+>> ps axZ(check the tag of running process)
 
+SELinux bools
+getsebool -a 
+
+install ftp service
+>> yum -y install vsftpd
+>> vi /etc/vsftpd/vsftpd.conf
+turn on anno upload in conf
+turn on relative firewall
+install filezilla in outer computer
+>> setsebool -P(permenent) [boolname] on
