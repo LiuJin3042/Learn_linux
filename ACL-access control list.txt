@@ -1,0 +1,9 @@
+ACL: access control list
+grant special access to specific uid/gid
+ls -l to check the permission, (ended with '.')
+getfacl [file]: check the acl
+setfacl -m u:user1:rwx aa: set specific perssion to user1
+ after that, use 'ls -l' to check the permission, the order of permission 
+ is changed into 'user-user1-group+', completed changed. '+' represents the
+ permission of other user that is not listed.
+mask: the permission of others will do 'and' operates with it.
