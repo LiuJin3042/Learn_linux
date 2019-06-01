@@ -12,3 +12,8 @@ ps aux: show all process.
 ps axo pid,comm,nice --sort=-nice
 renice -n -7 $(pgrep origami@home): find process of user origami and set the
 priority to -7
+
+sha1sum /dev/zero &: create some special file to fufill the cpu
+then manually ajust the priority, see the change of cpu
+ps -u $(pgrep sha1sum), find all process sha1sum
+killall sha1sum
