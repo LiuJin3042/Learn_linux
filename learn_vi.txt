@@ -125,4 +125,20 @@ set nu: display line number
 +/-: reletive line number
 .,.+10co.-20: copy from present line to present +10 line after present -20 line  
 /pattern/: find line through pattern
-
+(in vi)d/while: delete words from cursor to 'while'
+(in ex).,/while/d: delete current to next match 'while'
+g/pattern: move to last 'pattern' in the article
+g/pattern/p: display all line matches pattern
+g!/pattern/p: display any line not mathch 'pattern'
+60,110g/pattern/p: from line to 110, search and display
+|: split commands
+1,3d | s/thier/their: del 1 to 3 line, sub 'thier' to 'their'(in current line,
+	which is original line 4)
+w!: write in by force
+1,30 w newfile.txt: write line 1 to 30 to newfile.txt
+1,30w >> newfile.txt: append 1,30 to newfile.txt
+r/read filename: read a newfile and copy it to next line of cursor
+100 r filename: put the file to 100line
+vi file1 file2; :w; :n : edit file1, write file1, goto file2
+args: show all file in edit list
+e file2: switch to file2

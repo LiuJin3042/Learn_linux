@@ -1,0 +1,30 @@
+test paragraph:
+My name is van, i'm an artist, a performance artist. i'm hired for people to 
+fulfill their fantasies, the deep dark fantesies.
+a
+
+Moving Cursor
+i: insert
+I: insert at front of line
+a: append
+A: append at end of line
+o: overline
+O: upperline
+w: word forward
+b: word backword
+0: move to the head of the line
+$: move o the end of line 
++: go to the first letter next line
+-: first letter last line
+e/E: end of word
+h,j,k,l: left,up,down,right
+4h: repeat 'h' 4 times
+
+Edit
+c: change the letter
+cc: change whole line
+cw: change word
+c2b: 2 words before the cursor
+c$/C: delete words from cursor to the end of this line(stay in insert mode)
+c0: cursor to the begin of the line
+C: delete words from the cursor to the end
