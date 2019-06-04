@@ -142,3 +142,6 @@ r/read filename: read a newfile and copy it to next line of cursor
 vi file1 file2; :w; :n : edit file1, write file1, goto file2
 args: show all file in edit list
 e file2: switch to file2
+#,%: first file, second file
+w %.new: save present content in buffer to a new file
+P74.
