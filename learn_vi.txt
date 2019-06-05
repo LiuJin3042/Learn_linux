@@ -144,4 +144,16 @@ args: show all file in edit list
 e file2: switch to file2
 #,%: first file, second file
 w %.new: save present content in buffer to a new file
-P74.
+"f4yy, w, e letter, "fp: yank line 4 into buffer 'f', save, switch to file
+	'letter', place text
+
+Global Replacement
+s/old/new/: substitude one 'old' to 'new', in current line
+s/old/new/g: substitude all 'old' in the line
+1,$s/old/new/g: substitude whole passage
+%s/old/new/g: % == 1,$
+1,$s/old/new/gc: c means confirmation, mannually confirm each change.(y+enter
+	to change, enter to pass)
+g/pattern/s/old/new/g: global search line with 'pattern', and sub 'old' to
+	'new' 
+
