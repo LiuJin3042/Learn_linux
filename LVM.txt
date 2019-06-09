@@ -1,0 +1,26 @@
+LVM: logical volume management
+fdisk /dev/sdb
+>... >t >8e >w
+gdisk /dev/sdc
+>... >t >8e00 >w
+>> pvscan #scan physics volume
+>> pvcreate /dev/sdb4
+>> pvscan
+>> pvdisplay
+>> vgscan
+>> vgcreate vg0 /dev/sdc2 /dev/sdb4
+>> vgdisplay
+>> lvscan
+>> lvcreate -n lv0 -L 200M vg0
+>> ls -l /dev/vg0/lv0
+>> ls -l /dev/mapper/vg0-lv0
+>> lvscan 
+>> mkfs.xfs /dev/vg0/lv0
+>> mount /dev/vg0/lv0 ~bb
+>> cd ~/bb
+>> df -hT
+>> [lv/vg/pv]remove
+>> pvcreate /dev/sdd
+>> vgextend vg0 /dev/sdd
+>> lvextend -L +3G /dev/vg0/lv0
+xfs-growfs 
