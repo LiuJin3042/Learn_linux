@@ -1,0 +1,20 @@
+swap space(virtue RAM)
+>> swapon -s # show the list of swap partitions
+>> fdisk /dev/sdb
+>n >p >[default]... >[size: 1.5 times of ram]
+>t >82 #change partition format to linux swap
+>w
+>> mkswap /dev/sdb3
+>> swapon /dev/sdb3
+>> swapon -s
+>> swapoff /dev/sdb3
+>> swapon --pri=2 /dev/sdb3
+>> vi /etc/fstab
+ UUID=... swap swap,pri=2 defaults 0 0
+>> dd if=/dev/zero of=~/sw.file bs=1M count=200 # creat a 200M file
+>> mkswap ~/sw.file # make the file a swap file
+>> swapon sw.file
+>> swapoff sw.file
+>> chmod 0600 sw.file # change previlliages to ensure safety
+>> swapon sw.file
+
