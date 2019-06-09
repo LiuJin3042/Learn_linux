@@ -117,7 +117,7 @@ co/t: copy line
 170,220m3: move from line 170 to line 220 after line 3
 23,29c100: copy from line 23 to line 29 after line 100
 set nu: display line number
- to line 220 after line 3
+  to line 220 after line 3
 23,29c100: copy from line 23 to line 29 after line 100
 set nu: display line number
 .$0%: present/last/first/all line of this passage
@@ -133,7 +133,7 @@ g!/pattern/p: display any line not mathch 'pattern'
 60,110g/pattern/p: from line to 110, search and display
 |: split commands
 1,3d | s/thier/their: del 1 to 3 line, sub 'thier' to 'their'(in current line,
-	which is original line 4)
+  which is original line 4)
 w!: write in by force
 1,30 w newfile.txt: write line 1 to 30 to newfile.txt
 1,30w >> newfile.txt: append 1,30 to newfile.txt
@@ -145,7 +145,7 @@ e file2: switch to file2
 #,%: first file, second file
 w %.new: save present content in buffer to a new file
 "f4yy, w, e letter, "fp: yank line 4 into buffer 'f', save, switch to file
-	'letter', place text
+  'letter', place text
 
 Global Replacement
 s/old/new/: substitude one 'old' to 'new', in current line
@@ -153,7 +153,31 @@ s/old/new/g: substitude all 'old' in the line
 1,$s/old/new/g: substitude whole passage
 %s/old/new/g: % == 1,$
 1,$s/old/new/gc: c means confirmation, mannually confirm each change.(y+enter
-	to change, enter to pass)
+  to change, enter to pass)
 g/pattern/s/old/new/g: global search line with 'pattern', and sub 'old' to
-	'new' 
+  'new' in the matched line 
+%s/Yae/& Sakura/: substitude 'Yae' for 'Yae Sakura', '&' represents matched
+  content
+s/\(this\) \(that\)/\u\1 \l\2: 'This That' => 'This that'
+  !Attention, must use '\(','\)' so the matched pattern can be written in \1, \2
+g/content/mo14: search line with 'content' and move to line 14
+1,10g/^/ 12,17 t $: copy line 12 to line 17 to end of passage 10 times
+g /^\d/.+2 w >> newfile: search line begin with number, append 2 line next to it
+  to a newfile
+/^part2/,/^part3/ g /^Chapter/ .+2 w >> newfile: search line begin with
+  Chapter from line start with 'part2' to 'part3' and append 2 lines after it to
+  new file
+/^part2/,/^part3/ g /^Chapter/ .+2 w >> newfile | + t $: append those lines to
+  newfile and put one line after it to end of passage
+
+Chapter 7: Advanced Edit
+Customize vi
+set option: turn off option
+set nooption: turn off option
+set all: check all options
+set wrapmargin=10: right margin = 10, auto change line
+Unix Command
+!ls: add '!' before order to run in unix
+sh: open a shell window(press ^d to quit)
+r !filename: put contents in filename to this passage
 

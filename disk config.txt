@@ -1,0 +1,34 @@
+config virtue mechine
+  hard disk>add>2g,singlefile>
+  add 2 more disks
+  now we have 4 disks in total
+>> cat /proc/partition
+  list all disks
+fdisk: edit MBR disk
+gdisk: GPT disk
+MBR: master boot record
+>> ls /dev/sd*
+  sda1,sda2... partitions in one disk
+>> fdisk -l /dev/sdb
+  check info of disks
+>> fdisk /dev/sdb
+(get into edit interface)
+>n >p >1 >2048 >+200M
+>w # write in 
+>> partprobe # find new partitions
+>> mkfs.xfs /dev/sdb1 # format disk
+>> mount /dev/sdb1 /root/bb # mount disk
+>> ht
+>> umount bb # unmount
+>> mkfs.xfs /dev/sdb1
+# gui 
+utilities>disk
+#use gdisk
+>> gdisk /dev/sdc
+>n >...
+>w 
+# write into system configuration
+>> vi /etc/fstab # append following words
+  /dev/sdb1 /root/bb xfs defaults 0 0
+>> blkid /dev/sdb1 # check uuid
+

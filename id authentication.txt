@@ -1,0 +1,3 @@
+>> authconfig-tui #view authentication configuration interface
+yum install authconfig-gtk
+
