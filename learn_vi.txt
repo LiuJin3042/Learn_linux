@@ -176,6 +176,8 @@ set option: turn off option
 set nooption: turn off option
 set all: check all options
 set wrapmargin=10: right margin = 10, auto change line
+config '.exrc' file: vi will pre process commands in '.exrc', no need to input
+  ':' before commands. 
 Unix Command
 !ls: add '!' before order to run in unix
 sh: open a shell window(press ^d to quit)
