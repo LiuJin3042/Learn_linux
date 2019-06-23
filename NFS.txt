@@ -1,0 +1,31 @@
+NFS: network file system
+(to remote server)
+>> systemctl status nfs
+>> yum install nfs-utils rpcbind
+>> systemctl start nfs-utils rpcbind
+>> vi /etc/exports
+/root/bb 192.168.0(rw) # for 192.168.0.0-255 
+/root/bb 0/0(rw) #for everyone
+(rw,sync,insecure)# syncronize, read, write, allow all ports
+>> vi /etc/hosts
+append: ip_addr hostname
+>> iptables -F
+>> iptables -l
+(to local mechine)
+>> showmount -e 118.24.152.187
+>> mout 118.14.152.187:/root/bb /mnt
+now you can visit and sync the file in '/mnt'
+# auto mount file system: autofs
+>> systemctl status autofs
+>> systemctl start autofs
+>> systemctl enable autofs
+>> vi /etc/autofs.conf
+>> vi /etc/auto.master
+append: /mnt /etc/auto.mnt # add config file /etc/auto.mnt
+>> cp /etc/auto.misc /etc/auto.mnt # copy config file
+>> vi aut.mnt # edit
+>> cd /mnt
+# folder 'aa' does not exsist
+>> cd aa
+# 'aa' created and mount the outer disk to the folder
+

@@ -24,3 +24,5 @@ gdisk /dev/sdc
 >> vgextend vg0 /dev/sdd
 >> lvextend -L +3G /dev/vg0/lv0
 xfs-growfs 
+
+lvcreate -n lv1 -L 200M -s lv0 # creat snapshot and any change within 200M will be stored in the disk

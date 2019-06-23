@@ -1,0 +1,12 @@
+SMB: Server Message Block
+(in windows)
+>> net user # view all users
+>> net share # view all sharefolders
+share one folder
+(visit the folder in linux)
+>> ping 192.168.27.1
+>> smbclient -L //192.168.27.1 # will fail because windows doesn't have root
+user
+>> smbclient -L //192.168.27.1 -U 我永远爱八重樱
+>> mount -o username=我永远爱八重樱 //192.168.27.1/d /mnt
+

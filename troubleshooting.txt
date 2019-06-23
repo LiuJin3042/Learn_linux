@@ -1,0 +1,11 @@
+centos starting up process:
+  bios self check
+  search bootable device
+  read loader from disk, which is grub.cfg
+>> cd /root/
+>> cd grub2
+>> vi grub.cfg # donot edit, change other files to auto creat grub.cfg
+>> cd /etc/grub.d
+...change config file...
+>> grub2-mkconfig -o /boot/grub2/grub.cfg # recreate grub.cfg
+
