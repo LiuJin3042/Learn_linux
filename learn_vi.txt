@@ -130,7 +130,7 @@ set nu: display line number
 g/pattern: move to last 'pattern' in the article
 g/pattern/p: display all line matches pattern
 g!/pattern/p: display any line not mathch 'pattern'
-60,110g/pattern/p: from line to 110, search and display
+60,110g/pattern/p: from line 60 to 110, search and display
 |: split commands
 1,3d | s/thier/their: del 1 to 3 line, sub 'thier' to 'their'(in current line,
   which is original line 4)
@@ -183,3 +183,21 @@ Unix Command
 sh: open a shell window(press ^d to quit)
 r !filename: put contents in filename to this passage
 
+chapter 10: vim-vi improved
+50%: go to line 50/100*(total line number)
+v: visual mode, can select words and put them into buffer
+in visual mode
+  as: add a sentence to selected area
+  is: add inner sentence
+  ap: add paragraph
+  ip: add inner paragraph
+  5aw: add 5 words(including punctuations)
+  5aW: add 5 words(just words)
+
+chapter 11: multi windows
+in command line
+  vim -o file1 file2
+  vim -o3 file1 file2: open 3 windows in total
+in ex mode
+  vsplit: split windows vertically
+  split file2: open file2 in another window

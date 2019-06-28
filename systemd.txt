@@ -1,0 +1,35 @@
+服务管理：
+systemd 是所有进程的父进程
+systemctl 用来管理systemd
+管理的服务有后缀名，称为常用类型。
+systemctl 列出所有服务。参数：-a；
+systemctl status sshd.service 远程用户登录的服务。查看该服务状态
+停止服务：不能直接杀后台进程，因为有守护进程。使用 systemctl stop sshd
+启动服务： systemctl start [service_name] 
+重启服务： systemctl restart [service_name]
+重加载配置： systemctl reload [service_name],PID不会改变
+禁用： systemctl disable [] 仅仅是删掉启动快捷方式，原文件没有删除
+启用： systemctl enable [] 重新复制快捷方式
+service文件位置：/usr/lib/systemd/system/
+屏蔽服务： systemctl mask [service_name] 
+
+配置和保护openssh服务：
+开源的ssh。ssh用来进行远程控制、计算机传送文件。ssh是客户端，用来连接。sshd用来被链接。
+ssh user_name@ip_address 连接远程主机。
+sshd天生就是加密的
+/etc/ssh/ 下，ssh_config 和 sshd_config是配置文件
+ssh-keygen：生成密钥对。登录时将公钥放到远程服务器的配置文件，下次登录直接与服务器验证公私钥，就不用输入密码。
+还可以配置双向秘钥验证。
+ssh_keygen
+scp ~/.ssh/id_rsa.pub user1@118.24.152.187:~/.ssh/filename 
+ssh user1@118.24.152.187
+cat ~/.ssh/filename >> ~/.ssh/authorized_keys
+
+分析和存储日志
+syslog 系统日志服务，通过配置文件决定应用产生日志是否写入，写入到哪个文件
+红帽7中， 服务改成了 rsyslog，
+log_sender.log_type 日志发出者+日志类型
+/var/log中存储日志
+tail -f logfile.conf 使用该命令监视日志文件
+logger -p local7.notice "some message" 生成日志信息
+
