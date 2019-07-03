@@ -8,3 +8,4 @@ ps --forest看进程树。ps -f可以通过ppid查看父进程。
 输出的BASH_SUBSHELL=1
 
 命令后加上&可以进入后台模式。
+

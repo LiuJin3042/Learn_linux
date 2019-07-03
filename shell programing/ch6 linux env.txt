@@ -1,0 +1,39 @@
+>> env: check environment varibles
+>> printenv HOME: check the value of varible 'HOME'
+# /home/liujin
+>> echo $HOME: check value of 'HOME'
+DO NOT use env to check single varible
+>> ls $HOME
+# list /home/liujin
+Global environment can apply to all sub shells
+
+>> set
+# list all varibles, global, loacl and user-defined.
+
+# define varibles
+>> echo $var
+>> var='hello'
+>> echo $var
+# use lowercase when define vars to prevent redefining sys vars
+# do NOT add space around '=' like 'var = hello', illegal
+# local vars don't work in sub shells
+
+# global varibles
+>> echo $global_var
+>> global_var='i'm global'
+>> export global_var
+>> bash
+>> echo $global_var
+# however, revalue/del global varibles in sub shell 
+# won't change it's value in parent shell
+
+# delete varible
+>> unset global_var
+
+# set PATH varible
+>> echo $PATH
+>> PATH=$PATH:/home/liujin/desktop
+>> ehco $PATH
+# add pwd to PATH
+>> PATH=$PATH:.
+
