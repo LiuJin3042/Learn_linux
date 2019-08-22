@@ -128,7 +128,7 @@ set nu: display line number
 (in vi)d/while: delete words from cursor to 'while'
 (in ex).,/while/d: delete current to next match 'while'
 g/pattern: move to last 'pattern' in the article
-g/pattern/p: display all line matches pattern
+g/pattern/p: display all lines that match pattern
 g!/pattern/p: display any line not mathch 'pattern'
 60,110g/pattern/p: from line 60 to 110, search and display
 |: split commands
@@ -195,9 +195,51 @@ in visual mode
   5aW: add 5 words(just words)
 
 chapter 11: multi windows
+CREATE NEW WINDOW
 in command line
   vim -o file1 file2
   vim -o3 file1 file2: open 3 windows in total
 in ex mode
   vsplit: split windows vertically
-  split file2: open file2 in another window
+  split file2: open file2 in another window horizontally
+  [n]split file2: display n lines of file2 horizontally. 
+  if no file is specified, display another window in the same content of
+    present window. New window will cut the screen evenly if no [n] is specified. 
+  ^WS: same as split 
+  [n]new: new window, creat a new file. 
+  [n]vnew: open a vertical window.
+MOVE CURSOR 
+ ^W+h/j/k/l: move cursor between windows, in the direction of h/j/k/l
+   +t: move to upper left corner.
+   +b: move to buttom right corner.
+   +p: move to last visited window.
+   +w: move to window below or to the right.(will circle back)
+MOVE WINDOW
+  ^W+r: Rotate the window below or to the right.
+    +R: Rotate the window in the opposite way.
+    +x: exchange position with ajacent window.
+        3^W+x: exchange position with 3rd window below it.
+    +H/J/K/L: move window to the left/bottom/top/right side of the screen.
+    +T: move window to the new page.
+RESIZE WINDOW
+  ^W+=: justfy windows to the same size.
+    +-: cut one line of present window.
+    ++: add one line to present windwo.
+    +>: cut one column.
+    +<: add one column.
+  :resize +n: add n lines to present window.
+  :resize n: set width of present window to n lines.
+  :vertical resize n: set column number.
+NEW TAB
+  :tabnew filename: open new file in a new tab.
+  :tabclose: close present tab.
+  :tabonly: close all but this tab.
+QUIT TAB
+  ^W+q: If 'hidden' is set and this window is the last one, window will be
+closed while buffer is saved. If 'hidden' not set or unsaved changes remain in
+buffer, no change will be make.
+    +c: Close present window.
+    +o: Close all but this.
+  :only: Close all but this. 
+  :close: Close present window.
+  :quit: Leave the file while keeping the buffer.
