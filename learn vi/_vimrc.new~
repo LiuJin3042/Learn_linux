@@ -1,0 +1,81 @@
+source $VIMRUNTIME/vimrc_example.vim
+
+so $VIMRUNTIME/delmenu.vim   
+set langmenu=none
+set guifont=courier_new:h10
+so $VIMRUNTIME/menu.vim
+
+set diffexpr=MyDiff()
+if has("multi_byte")
+    set encoding=utf-8 
+    set termencoding=utf-8 
+    set formatoptions+=mM 
+    set fencs=utf-8,gbk 
+    if v:lang =~? '^/(zh/)/|/(ja/)/|/(ko/)' 
+        set ambiwidth=double 
+    endif 
+    if has("win32") 
+        source $VIMRUNTIME/delmenu.vim 
+        source $VIMRUNTIME/menu.vim 
+        language messages zh_CN.utf-8 
+    endif 
+else 
+    echoerr "Sorry, this version of (g)vim was not compiled with +multi_byte" 
+endif
+
+set nu!
+
+function SetTimeofDayColors()
+  "set color style based on system time."
+  let currentHour = strftime("%H")
+  echo "currentHour is " currentHour
+  if currentHour < 6 + 0
+    colorscheme darkblue
+  elseif currentHour < 12 + 0
+    colorscheme morning
+  elseif currentHour < 18 + 0
+    colorscheme shine
+  else
+    colorscheme evening
+  endif
+endfunction
+call SetTimeofDayColors()
+
+set statusline=%<%t%h%m%r\ \ %a\ %{strftime(\"%c\")}%=0x%B\
+    \\ Line:%l,\ \ col:%c%V\ %P
+syntax enable 
+syntax on
+
+function MyDiff()
+  let opt = '-a --binary '
+  if &diffopt =~ 'icase' | let opt = opt . '-i ' | endif
+  if &diffopt =~ 'iwhite' | let opt = opt . '-b ' | endif
+  let arg1 = v:fname_in
+  if arg1 =~ ' ' | let arg1 = '"' . arg1 . '"' | endif
+  let arg1 = substitute(arg1, '!', '\!', 'g')
+  let arg2 = v:fname_new
+  if arg2 =~ ' ' | let arg2 = '"' . arg2 . '"' | endif
+  let arg2 = substitute(arg2, '!', '\!', 'g')
+  let arg3 = v:fname_out
+  if arg3 =~ ' ' | let arg3 = '"' . arg3 . '"' | endif
+  let arg3 = substitute(arg3, '!', '\!', 'g')
+  if $VIMRUNTIME =~ ' '
+    if &sh =~ '\<cmd'
+      if empty(&shellxquote)
+        let l:shxq_sav = ''
+        set shellxquote&
+      endif
+      let cmd = '"' . $VIMRUNTIME . '\diff"'
+    else
+      let cmd = substitute($VIMRUNTIME, ' ', '" ', '') . '\diff"'
+    endif
+  else
+    let cmd = $VIMRUNTIME . '\diff'
+  endif
+  let cmd = substitute(cmd, '!', '\!', 'g')
+  silent execute '!' . cmd . ' ' . opt . arg1 . ' ' . arg2 . ' > ' . arg3
+  if exists('l:shxq_sav')
+    let &shellxquote=l:shxq_sav
+  endif
+endfunction
+

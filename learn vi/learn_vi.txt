@@ -243,3 +243,52 @@ buffer, no change will be make.
   :only: Close all but this. 
   :close: Close present window.
   :quit: Leave the file while keeping the buffer.
+
+chapter 12: Vim Script
+Edit .vimrc/.gvimrc. 
+
+chapter 13: Other usage
+FOLD
+  zA: Recursively switch the folding state. 
+  zC: Recursively close folds.
+  zD: Recursively delete folds.
+  zE: Remove all folds.
+  zf: Fold starts from present cursor position to next position.
+  [n]zf: Fold n lines.
+  zM: Set foldlevel to 0.
+  zN: Set foldenable.
+  zn: Reset foldenable.
+  zi: Switch value of foldenable.
+  zo: Recursively onpen folds.
+  za: Switch status of a fold.
+  zd: Delete a fold.
+  zj: Move cursor to the begining of next fold.
+  zk: Move cursor to the end of last fold.
+  zr: Increment value of fold level.
+  zm: Decrement value of fold level.
+  :mkview, :loadview: Save all folds.
+examples:
+  3zF: Fold 3 lines, including present line.
+  3zfj: Fold present line and 3 lines below.
+  Firstly move cursor to { or }, then type zf%, will fold a code block. % move
+between pairs of brackets.
+  Fold from 'FOLD' to 'examples: move cursor to FOLD, type zf/examples[enter]
+  Everything do to the folded line will change all lines folded.
+  :set foldmethod=indent: Fold based on indents.
+  :set foldlevel=0: Only view zero level of fold.
+  :set foldmethod=syntax: Fold based on syntax.
+INDENT
+  :set ..indent
+  autoindent
+  cindent: for c language.
+  smartindent
+COMPLETE KEY WORDS
+  ^x: Complete words.
+  ^x^f: Complete filename.
+  ^x^n: Find among candidates. (after that)^n: Next completion choice. ^p:
+Previous choice.
+  ^x^l: Complete line.
+  ^x^i: Find keywords in present file and included files.
+  ^x^s: Give a candidate list of available words. Need to switch on spelling
+check. :set spell.
+
